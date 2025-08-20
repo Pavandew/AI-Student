@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "252007858496",
+    "project_id": "ai-student-5c89d",
+    "storage_bucket": "ai-student-5c89d.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:252007858496:android:8f3df6a8269181b7da7aa5",
+        "android_client_info": {
+          "package_name": "com.ourmindai.aistudent"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "252007858496-l5icgcbagkl74g0q651o5a2i8v47bf0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ourmindai.aistudent",
+            "certificate_hash": "1af43d0ea14614cebc9a9592710f6e89d8bee09b"
+          }
+        },
+        {
+          "client_id": "252007858496-kn2jnel990op8r0l3fpvr1nnm1603hb5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA1hjSyzVO7gf1T4volADyt_Tef247g-ds"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "252007858496-ju8a8ol0insu5l9nntn625muvgfv1e25.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
