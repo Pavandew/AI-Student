@@ -153,40 +153,40 @@ fun SideDrawerPage(
             Text(text = "Sign Out", style = Typography.bodyLarge.copy(color = Color.White))
         }
 
-        // row for Showing user Image and userName
-        // Bottom user info
-        Row(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp, bottom = 40.dp)
-                .verticalScroll(rememberScrollState()),
-            verticalAlignment = Alignment.CenterVertically,
-        ) {
-//            if (userData.profilePictureUrl != null) {
-                AsyncImage(
-                    model = userData.profilePictureUrl  ?: R.drawable.chat_icon,
-                    contentDescription = "Profile Picture",
-                    modifier = Modifier
-                        .size(50.dp)
-                        .clip(CircleShape),
-                    contentScale = ContentScale.Crop
-                )
+//        // row for Showing user Image and userName
+//        // Bottom user info
+//        Row(
+//            modifier = Modifier
+//                .fillMaxWidth()
+//                .padding(16.dp, bottom = 40.dp)
+//                .verticalScroll(rememberScrollState()),
+//            verticalAlignment = Alignment.CenterVertically,
+//        ) {
+////            if (userData.profilePictureUrl != null) {
+//                AsyncImage(
+//                    model = userData.profilePictureUrl  ?: R.drawable.chat_icon,
+//                    contentDescription = "Profile Picture",
+//                    modifier = Modifier
+//                        .size(50.dp)
+//                        .clip(CircleShape),
+//                    contentScale = ContentScale.Crop
+//                )
+////            }
+//
+//            Spacer(modifier = Modifier.width(12.dp))
+//
+//            Column {
+//                Text(
+//                    text = userData.userName ?: "Guest",
+//                    color = Color.White,
+//                    style = Typography.bodyLarge
+//                )
+//                Text(
+//                    text =  userData.userEmail ?: "No Email",
+//                    color = Color.LightGray,
+//                    style = Typography.bodySmall
+//                )
 //            }
-
-            Spacer(modifier = Modifier.width(12.dp))
-
-            Column {
-                Text(
-                    text = userData.userName ?: "Guest",
-                    color = Color.White,
-                    style = Typography.bodyLarge
-                )
-                Text(
-                    text =  userData.userEmail ?: "No Email",
-                    color = Color.LightGray,
-                    style = Typography.bodySmall
-                )
-            }
-        }
+//        }
     }
 }
