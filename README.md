@@ -10,7 +10,7 @@ AI Student is an Android application built to assist students in their learning 
 
 🎨 Modern UI – Built with Material Design for smooth user experience.
 
-📱 Navigation Drawer – Easy access to all sections (customizable).
+📱 Navigation Drawer – Easy access to all sections and showing All Chat history(customizable).
 
 🛠️ Tech Stack
 
