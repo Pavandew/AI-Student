@@ -13,16 +13,16 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import okio.IOException
 
-class MistralChatViewModel: ViewModel() {
-    val MISTRAL_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
-    val apikey = Constants.MISTRAL_API_KEY
+class MistralChatViewModel : ViewModel() {
+    private val MISTRAL_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
+    private val apiKey = Constants.MISTRAL_API_KEY
 
     private val _response = MutableStateFlow("Mistral is ready!")
     val response = _response.asStateFlow()
 
-    fun sendMessageToMistral(prompt: String, apikey: String) {
+    fun sendMessageToMistral(prompt: String, apikey: String = apiKey) {
         viewModelScope.launch {
-            "Mistral is thinking...".also { _response.value = it }
+            _response.value = "Mistral is thinking..."
 
             val request = ChatRequest(
                 model = MISTRAL_MODEL,
@@ -33,24 +33,35 @@ class MistralChatViewModel: ViewModel() {
                     )
                 )
             )
-            try {
-                val result = RetrofitInstance.api.sendChatMessage(request, "Bearer $apikey").execute()
 
-                if(result.isSuccessful) {
+            try {
+                val result = RetrofitInstance.api
+                    .sendChatMessage(request, "Bearer $apikey")
+                    .execute()
+
+                if (result.isSuccessful) {
                     val body = result.body()
-                    val outputText = body?.choice?.firstOrNull()?.message?.content ?: "No response"
+                    val outputText = body?.choice  // ✅ now plural
+                        ?.firstOrNull()
+                        ?.message
+                        ?.content ?: "No response"
+
                     _response.value = outputText
-                    Log.d("MistralChatViewModel", "Response is: --> $outputText")
+                    Log.d("MistralChatViewModel", "Response: $outputText")
                 } else {
-                    _response.value = "Error ${result.code()} ${result.message()}"
-                    Log.d("MistralChatViewModel", "HTTP Error: ${result.code()} ${result.message()}")
+                    val errorMsg = "Error ${result.code()} ${result.message()}"
+                    _response.value = errorMsg
+                    Log.e("MistralChatViewModel", errorMsg)
                 }
             } catch (e: IOException) {
-
+                val errorMsg = "Network error: ${e.localizedMessage}"
+                _response.value = errorMsg
+                Log.e("MistralChatViewModel", errorMsg, e)
+            } catch (e: Exception) {
+                val errorMsg = "Unexpected error: ${e.localizedMessage}"
+                _response.value = errorMsg
+                Log.e("MistralChatViewModel", errorMsg, e)
             }
         }
     }
-
-
-
 }
