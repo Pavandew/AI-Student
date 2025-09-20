@@ -13,6 +13,7 @@ import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.launch
 import okio.IOException
 
+
 class MistralChatViewModel : ViewModel() {
     private val MISTRAL_MODEL = "mistralai/mistral-small-3.2-24b-instruct:free"
     private val apiKey = Constants.MISTRAL_API_KEY
