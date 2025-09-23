@@ -357,8 +357,8 @@ fun MessageInput(
 
     val model = listOf(
         ModelItem("Gemini", R.drawable.gemini),
-        ModelItem("OpenAI GPT-3.5-turbo", R.drawable.chatgpt),
-        ModelItem("OpenAI GPT-4o", R.drawable.chatgpt),
+//        ModelItem("OpenAI GPT-3.5-turbo", R.drawable.chatgpt),
+//        ModelItem("OpenAI GPT-4o", R.drawable.chatgpt),
         ModelItem("Claude (OpenRouter)", R.drawable.claude),
         ModelItem("Mixtral 8x7B(OpenRouter)", R.drawable.claude),
     )

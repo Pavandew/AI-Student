@@ -42,7 +42,7 @@ class MistralChatViewModel : ViewModel() {
 
                 if (result.isSuccessful) {
                     val body = result.body()
-                    val outputText = body?.choice  // ✅ now plural
+                    val outputText = body?.choice  //  now plural
                         ?.firstOrNull()
                         ?.message
                         ?.content ?: "No response"
