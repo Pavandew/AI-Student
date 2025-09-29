@@ -23,7 +23,7 @@ import com.ourmindai.aistudent.model.ModelItem
 import com.ourmindai.aistudent.ui.theme.Typography
 import kotlin.collections.forEach
 
-
+// Models name Dropdown here
 @Composable
 fun DropDownModels(
     modifier: Modifier = Modifier,
@@ -39,7 +39,6 @@ fun DropDownModels(
     ) {
         models.forEach { model ->
             DropdownMenuItem(
-//                modifier = Modifier.background(BackGroundColor),
                 text = {
                     Row(
                         modifier = Modifier.fillMaxWidth(),

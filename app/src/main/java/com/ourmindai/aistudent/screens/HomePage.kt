@@ -75,6 +75,7 @@ import com.ourmindai.aistudent.viewmodel.AuthViewModel
 import com.ourmindai.aistudent.viewmodel.GeminiViewModel
 import kotlinx.coroutines.launch
 
+// Home Page all home Page UI is here
 @Composable
 fun HomePage(
     modifier: Modifier = Modifier,
@@ -121,7 +122,6 @@ fun HomePage(
             )
         }
     ) {
-
         ChatContentWithSideDrawer(
             modifier = modifier,
             geminiViewModel = geminiViewModel,

@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.core.content.ContextCompat
 import java.util.Locale
 
-
+// Google Translator for speech to text
 @Composable
 fun SpeechToText(
     onResult: (String) -> Unit,
