@@ -69,13 +69,6 @@ fun SideDrawerPage(
         .padding(end = 90.dp)
         .background(Color.Black)
     ) {
-//        Text(
-//            "Navigation Menu",
-//            modifier = Modifier.padding(top = 40.dp, start = 16.dp),
-//            color = Color.White,
-//            style = Typography.headlineMedium)
-//
-//        HorizontalDivider(modifier = Modifier.padding(8.dp))
 
         TextButton(
             onClick = {
@@ -138,8 +131,6 @@ fun SideDrawerPage(
                 }
             }
         }
-
-//        Spacer(modifier = Modifier.weight(0.1f)) // Push everything below to bottom
 
         // Text Button for signOut
         TextButton(

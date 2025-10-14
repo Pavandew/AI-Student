@@ -109,6 +109,8 @@ fun HomePage(
             else -> Unit
         }
     }
+
+    // Open Side drawer
     ModalNavigationDrawer(
         drawerState = drawerState,
         drawerContent = {
@@ -148,7 +150,7 @@ fun ChatContentWithSideDrawer(
                     if (isDrawerOpen) Modifier.blur(16.dp) else Modifier
                 )
         ){
-            // Applilcation Header
+            // Application Header
             AppHeader(
                 onMenuClick = onMenuClick,
                 userData = userData
