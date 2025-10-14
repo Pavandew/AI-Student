@@ -28,7 +28,7 @@ fun ScreenNavigation(
         startDestination = startDestination,
         builder = {
             composable("login") {
-                LoginPage(modifier, navController, authViewModel, geminiViewModel)
+                LoginPage(modifier, navController, authViewModel)
             }
             composable("signup") {
                 SignUpPage(modifier, navController, authViewModel)

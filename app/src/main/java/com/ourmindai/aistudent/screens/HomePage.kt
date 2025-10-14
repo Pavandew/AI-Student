@@ -189,7 +189,7 @@ fun MessageList(
         ){
             Icon(
                 modifier = Modifier.size(200.dp).padding(bottom = 6.dp),
-                painter = painterResource(id = R.drawable.chat_icon),
+                painter = painterResource(id = R.drawable.app_logo_icon),
                 contentDescription = "Question",
                 tint = Color.Unspecified
             )

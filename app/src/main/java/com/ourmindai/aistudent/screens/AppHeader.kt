@@ -50,7 +50,7 @@ fun AppHeader(
         Spacer(modifier = Modifier.weight(1f))
 
         AsyncImage(
-            model = userData.profilePictureUrl  ?: R.drawable.chat_icon,
+            model = userData.profilePictureUrl  ?: R.drawable.app_logo_icon,
             contentDescription = "Profile Picture",
             modifier = Modifier
                 .padding(end = 8.dp)

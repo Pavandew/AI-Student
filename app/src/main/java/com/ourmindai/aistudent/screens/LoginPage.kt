@@ -52,7 +52,6 @@ import com.ourmindai.aistudent.R
 import com.ourmindai.aistudent.model.AuthState
 import com.ourmindai.aistudent.ui.theme.Typography
 import com.ourmindai.aistudent.viewmodel.AuthViewModel
-import com.ourmindai.aistudent.viewmodel.GeminiViewModel
 import com.google.android.gms.auth.api.identity.Identity
 import kotlinx.coroutines.launch
 
@@ -60,8 +59,7 @@ import kotlinx.coroutines.launch
 fun LoginPage(
     modifier: Modifier = Modifier,
     navController: NavController,
-    authViewModel: AuthViewModel,
-    chatViewModel: GeminiViewModel
+    authViewModel: AuthViewModel
     ) {
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
@@ -153,8 +151,8 @@ fun LoginPage(
     Box(modifier = modifier.fillMaxSize()) {
         // background Image for login
         Image(
-            painter = painterResource(id = R.drawable.bg_login_img), // Replace with your image
-            contentDescription = null,
+            painter = painterResource(id = R.drawable.bg_login_img),
+            contentDescription = "login background image",
             modifier = Modifier.fillMaxSize(),
             contentScale = ContentScale.Crop
         )
@@ -166,8 +164,8 @@ fun LoginPage(
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             Image(
-                painter = painterResource(id = R.drawable.chat_icon),
-                contentDescription = null,
+                painter = painterResource(id = R.drawable.app_logo_icon),
+                contentDescription = "logo Icon",
                 modifier = Modifier
                     .size(150.dp)
                     .padding(top = 30.dp),
@@ -192,7 +190,7 @@ fun LoginPage(
                 value = email,
                 onValueChange = { email = it },
                 label = { Text("Email") },
-                singleLine = true, //
+                singleLine = true,
                 colors = TextFieldDefaults.colors(
                     unfocusedTextColor = Color.White,
                     focusedTextColor = Color.White,

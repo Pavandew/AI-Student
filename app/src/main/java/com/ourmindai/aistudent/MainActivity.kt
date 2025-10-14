@@ -38,7 +38,10 @@ class MainActivity : ComponentActivity() {
             val userData by authViewModel.userData.collectAsState()
             val authState by authViewModel.authState.collectAsState()
             val isAuthChecked by authViewModel.isAuthChecked.collectAsState()
-            var isSplashDone by remember { mutableStateOf(false) }
+
+            var isSplashDone by remember {
+                mutableStateOf(false)
+            }
 
             val startDestination = if (authState is AuthState.Authenticated) "home" else "login"
 

@@ -89,7 +89,7 @@ fun SignUpPage(
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             Image(
-                painter = painterResource(id = R.drawable.chat_icon),
+                painter = painterResource(id = R.drawable.app_logo_icon),
                 contentDescription = null, modifier = Modifier.size(150.dp).padding(top = 30.dp),
                 contentScale = ContentScale.Crop
             )

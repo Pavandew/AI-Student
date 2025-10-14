@@ -71,7 +71,7 @@ fun SplashScreen(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally
         ){
             Icon(
-                painter = painterResource(R.drawable.chat_icon),
+                painter = painterResource(R.drawable.app_logo_icon),
                 contentDescription = null,
                 modifier = Modifier
                     .size(400.dp)
