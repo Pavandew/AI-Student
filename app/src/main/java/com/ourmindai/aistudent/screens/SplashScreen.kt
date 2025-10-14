@@ -30,6 +30,7 @@ import androidx.compose.ui.unit.dp
 import com.ourmindai.aistudent.R
 import com.ourmindai.aistudent.ui.theme.Typography
 
+// Slash Screen
 @Composable
 fun SplashScreen(modifier: Modifier = Modifier) {
 

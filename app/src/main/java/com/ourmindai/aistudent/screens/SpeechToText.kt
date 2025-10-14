@@ -86,6 +86,7 @@ fun SpeechToText(
             onDismiss()
         }
     }
+
     LaunchedEffect(Unit) {
         val intent = Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH).apply {
             putExtra(
