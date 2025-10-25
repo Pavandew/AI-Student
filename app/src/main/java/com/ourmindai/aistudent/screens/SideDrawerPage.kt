@@ -17,6 +17,8 @@ import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.DrawerState
 import androidx.compose.material3.HorizontalDivider
+import androidx.compose.material3.ModalDrawerSheet
+import androidx.compose.material3.NavigationDrawerItem
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
@@ -64,85 +66,86 @@ fun SideDrawerPage(
 //        })
 //    )
 
-    Column(modifier = Modifier
-        .fillMaxSize()
-        .padding(end = 90.dp)
-        .background(Color.Black)
-    ) {
-
-        TextButton(
-            onClick = {
-                scope.launch {
-                    drawerState.close()
-                    geminiViewModel.clearChat()
-                    onOption1Click
-                }
-            },
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(top = 45.dp)
+    ModalDrawerSheet {
+        Column(modifier = Modifier
+            .fillMaxSize()
+            .padding(end = 90.dp)
+            .background(Color.Black)
         ) {
-            Text(
-                text = "New Chat",
-                style = Typography.headlineSmall.copy(color = Color.White),
-                modifier = Modifier.fillMaxWidth(),
-                textAlign = TextAlign.Center
-            )
-        }
 
-        HorizontalDivider(
-            color = Color.Gray,
-            thickness = 1.dp,
-            modifier = Modifier.padding(vertical = 8.dp, horizontal = 12.dp)
-        )
-
-        LazyColumn (
-            modifier = Modifier
-                .weight(1f)
-                .fillMaxWidth()
-        ){
-
-            // Header for chat history
-            item {
+            TextButton(
+                onClick = {
+                    scope.launch {
+                        drawerState.close()
+                        geminiViewModel.clearChat()
+                        onOption1Click
+                    }
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(top = 45.dp)
+            ) {
                 Text(
-                    text = "Your Chat History",
-                    style = Typography.bodyLarge,
-                    modifier = Modifier.padding(start = 12.dp, top = 12.dp, bottom = 6.dp)
+                    text = "New Chat",
+                    style = Typography.headlineSmall.copy(color = Color.White),
+                    modifier = Modifier.fillMaxWidth(),
+                    textAlign = TextAlign.Center
                 )
             }
 
-            // Show chat history from Firestore
-            items(geminiViewModel.chatHistory.sortedByDescending { it.timestamp }) { chat ->
-                TextButton(
-                    onClick = {
-                        scope.launch {
-                            drawerState.close()
-                            geminiViewModel.loadChatById(chat.chatId)
-                            onOption1Click()
-                        }
-                    }
-                ) {
+            HorizontalDivider(
+                color = Color.Gray,
+                thickness = 1.dp,
+                modifier = Modifier.padding(vertical = 8.dp, horizontal = 12.dp)
+            )
+
+            LazyColumn (
+                modifier = Modifier
+                    .weight(1f)
+                    .fillMaxWidth()
+            ){
+
+                // Header for chat history
+                item {
                     Text(
-                        text = "Chat: ${geminiViewModel.formatTimestamp(chat.timestamp)}",
-                        style = Typography.bodyMedium,
-                        modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
-                        textAlign = TextAlign.Start
+                        text = "Your Chat History",
+                        style = Typography.bodyLarge,
+                        modifier = Modifier.padding(start = 12.dp, top = 12.dp, bottom = 6.dp)
                     )
                 }
-            }
-        }
 
-        // Text Button for signOut
-        TextButton(
-            onClick = {
-                authViewModel.signOut()
-            },
-            modifier = Modifier
-                .fillMaxWidth()
+                // Show chat history from Firestore
+                items(geminiViewModel.chatHistory.sortedByDescending { it.timestamp }) { chat ->
+                    TextButton(
+                        onClick = {
+                            scope.launch {
+                                drawerState.close()
+                                geminiViewModel.loadChatById(chat.chatId)
+                                onOption1Click()
+                            }
+                        }
+                    ) {
+                        Text(
+                            text = "Chat: ${geminiViewModel.formatTimestamp(chat.timestamp)}",
+                            style = Typography.bodyMedium,
+                            modifier = Modifier.fillMaxWidth().padding(start = 20.dp),
+                            textAlign = TextAlign.Start
+                        )
+                    }
+                }
+            }
+
+            // Text Button for signOut
+            TextButton(
+                onClick = {
+                    authViewModel.signOut()
+                },
+                modifier = Modifier
+                    .fillMaxWidth()
 //                .padding(16.dp)
-        ) {
-            Text(text = "Sign Out", style = Typography.bodyLarge.copy(color = Color.White))
-        }
+            ) {
+                Text(text = "Sign Out", style = Typography.bodyLarge.copy(color = Color.White))
+            }
 
 //        // row for Showing user Image and userName
 //        // Bottom user info
@@ -179,5 +182,7 @@ fun SideDrawerPage(
 //                )
 //            }
 //        }
+        }
+
     }
 }
